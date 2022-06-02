@@ -4,7 +4,7 @@
     <header class="container">
         <div class="">
             <nav style="background-color:peachpuff;">
-               <router-link to="/logIn"><img src="../assets/home.svg" alt="logo-home" style="width:50px;"/></router-link>
+               <router-link to="/topicList"><img src="../assets/home.svg" alt="logo-home" style="width:50px;"/></router-link>
             </nav>
         </div>
     </header>

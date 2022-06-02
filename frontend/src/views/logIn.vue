@@ -84,7 +84,7 @@ export default {
         email: this.email,
         password: this.password,
       }).then(function () {
-        self.$router.push('/userProfile');
+        self.$router.push('/topicList');
       }, function (error) {
         console.log(error);
       })

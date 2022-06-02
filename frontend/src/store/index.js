@@ -34,6 +34,7 @@ const store = createStore({
       email: '',
     },
   },
+
   mutations: {
     setStatus: function (state, status) {
       state.status = status;
@@ -54,6 +55,7 @@ const store = createStore({
       localStorage.removeItem('user');
     }
   },
+  
   actions: {
     login: ({commit}, userInfos) => {
       commit('setStatus', 'loading');
