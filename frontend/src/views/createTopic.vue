@@ -1,29 +1,54 @@
 <template>
-  <div class="card">
-    <h1 class="card__title">Créer un post</h1>
-<br>
-    <div class="form-row">
-      <input v-model="pseudonyme" class="form-row__input" type="text" placeholder="Title"/>
+<div class="card">
+    <div class="field">
+        <label class="label">Title</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Title" v-model="topicTitle"/>
+        </div>
     </div>
 <br>
-    <div class="form-row">
-      <input v-model="email" class="form-row__input" type="text" placeholder="Content" style="width:475px; height: 200px;"/>
+    <div class="field">
+        <label class="label">Content</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Content" v-model="topicContent" style="width:475px; height: 200px;"/>
+        </div>
     </div>
 <br>
-    <div class="form-row">
-        <button class="button">        
-            <span>Insérer une image</span>
-        </button>
-    </div>
-<br>
-    <div class="form-row">
-      <button class="button" :class="{'button--disabled' : !validatedFields}">
-        <span v-if="status == 'loading'">Création en cours...</span>
-        <span v-else>Valider</span>
-      </button>
-    </div>
-  </div>
+    <button class="button" @click="saveTopic">Valider</button>
+</div>
 </template>
+
+<script>
+// import axios
+import axios from "axios";
+ 
+export default {
+  name: "AddTopic",
+  data() {
+    return {
+      topicTitle: "",
+      topicContent: "",
+    };
+  },
+  methods: {
+    // Create New product
+    async saveTopic() {
+      try {
+        await axios.post("http://localhost:5000/newtopics", {
+          title: this.topicTitle,
+          content: this.topicContent,
+        });
+        this.topicTitle = "";
+        this.topicContent = "";
+        this.$router.push("/topicList");
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  },
+};
+</script>
+
 
 <style scoped>
 input {
