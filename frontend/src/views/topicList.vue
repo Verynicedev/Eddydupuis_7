@@ -11,7 +11,7 @@
   <div class="card">
     <!-- <router-link :to="{ name: 'Create' }" class="button is-success mt-5">Add New</router-link> -->
     <div class="form-row">
-      <h1 class="card__title">Liste des postes</h1>
+      <h1 class="card__title">Liste des posts</h1>
       <tr v-for="item in items" :key="item.topicId">
       <div class="cardTitle">{{ item.title }}</div>
       <!-- <td><router-link :to="{ name: 'Edit', params: { id: item.product_id } }" class="button is-info is-small">Edit</router-link>
