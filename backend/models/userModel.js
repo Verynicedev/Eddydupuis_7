@@ -4,6 +4,18 @@ import db from "../config/database.js";
 // Package de cryptage de MDP //
 import bcrypt from "bcrypt";
 
+// Get UserByEmail
+export const getUserByEmail = (email, result) => {
+    db.query("SELECT * FROM user WHERE email = ?", [email], (err, results) => { 
+        if(err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results[0]);
+        }
+    }); 
+}
+
 // Get Single User
 export const getUserById = (id, result) => {
     db.query("SELECT * FROM user WHERE userId = ?", [id], (err, results) => { 

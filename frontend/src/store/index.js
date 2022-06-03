@@ -60,7 +60,7 @@ const store = createStore({
     login: ({commit}, userInfos) => {
       commit('setStatus', 'loading');
       return new Promise((resolve, reject) => {
-        instance.get('/users/20', userInfos)           // remplacer '/users/20' par le vrai chemin
+        instance.get('/users/login', userInfos)           // remplacer '/users/20' par le vrai chemin
         .then(function (response) {
           commit('setStatus', '');
           commit('logUser', response.data);

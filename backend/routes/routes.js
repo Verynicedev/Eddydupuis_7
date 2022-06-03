@@ -2,7 +2,7 @@
 import express from "express";
 
  // import function from user controller
-import { showUserById, createUser, updateUser, deleteUser } from "../controllers/user.js";
+import { loginUserByEmail, showUserById, createUser, updateUser, deleteUser } from "../controllers/user.js";
 // import function from topic controller
 import { showTopics, showTopicById, createTopic, updateTopic, deleteTopic } from "../controllers/topic.js";
 // import function from comment controller
@@ -15,6 +15,9 @@ const router = express.Router();
 //////////////////////////////////////////////////////////
 
 // Routes des users
+// Login User
+router.get('/users/login', loginUserByEmail);
+
 // Get Single User
 router.get('/users/:id', showUserById);
  
